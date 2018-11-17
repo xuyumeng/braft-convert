@@ -254,6 +254,7 @@ var convertAtomicBlock = function convertAtomicBlock(block, contentState) {
       link_target = _entity$getData.link_target,
       width = _entity$getData.width,
       height = _entity$getData.height,
+      caption = _entity$getData.caption,
       meta = _entity$getData.meta;
 
   if (mediaType === 'image') {
@@ -277,13 +278,23 @@ var convertAtomicBlock = function convertAtomicBlock(block, contentState) {
           "a",
           { style: { display: 'inline-block' }, href: link, target: link_target },
           _react2.default.createElement("img", _extends({}, meta, { src: url, width: width, height: height, style: { width: width, height: height } }))
-        )
+        ),
+        caption ? _react2.default.createElement(
+          "span",
+          { style: { color: 'rgb(102, 102, 102)', fontSize: '12px' } },
+          caption
+        ) : null
       );
     } else {
       return _react2.default.createElement(
         "div",
         { className: "media-wrap image-wrap" + styledClassName, style: imageWrapStyle },
-        _react2.default.createElement("img", _extends({}, meta, { src: url, width: width, height: height, style: { width: width, height: height } }))
+        _react2.default.createElement("img", _extends({}, meta, { src: url, width: width, height: height, style: { width: width, height: height } })),
+        caption ? _react2.default.createElement(
+          "span",
+          { style: { color: 'rgb(102, 102, 102)', fontSize: '12px' } },
+          caption
+        ) : null
       );
     }
   } else if (mediaType === 'audio') {
