@@ -225,7 +225,7 @@ const convertAtomicBlock = (block, contentState) => {
   const mediaType = entity.getType().toLowerCase()
 
   let { float, alignment } = block.data
-  let { url, link, link_target, width, height, meta } = entity.getData()
+  let { url, link, link_target, width, height, caption, meta } = entity.getData()
 
   if (mediaType === 'image') {
 
@@ -246,12 +246,14 @@ const convertAtomicBlock = (block, contentState) => {
           <a style={{display:'inline-block'}} href={link} target={link_target}>
             <img {...meta} src={url} width={width} height={height} style={{width, height}} />
           </a>
+          {caption? <span style={{color: 'rgb(102, 102, 102)', fontSize: '12px'}}>{caption}</span>: null }
         </div>
       )
     } else {
       return (
         <div className={"media-wrap image-wrap" + styledClassName} style={imageWrapStyle}>
           <img {...meta} src={url} width={width} height={height} style={{width, height}}/>
+          {caption? <span style={{color: 'rgb(102, 102, 102)', fontSize: '12px'}}>{caption}</span>: null }
         </div>
       )
     }
