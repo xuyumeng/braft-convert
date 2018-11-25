@@ -498,7 +498,11 @@ const htmlToEntity = (options, source) => (nodeName, node, createEntity) => {
       entityData.link_target = parentNode.target
     }
 
-    console.log('====== parentNode ======', parentNode);
+    let captionNode = parentNode.childNodes[0]
+
+    if (captionNode && captionNode.nodeName && captionNode.nodeName.toLowerCase() === 'span') {
+      entityData.caption = captionNode.innerHTML
+    }
 
     return createEntity('IMAGE', 'IMMUTABLE', entityData) 
 
