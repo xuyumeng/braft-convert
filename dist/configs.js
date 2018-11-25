@@ -574,6 +574,8 @@ var htmlToEntity = function htmlToEntity(options, source) {
         entityData.link_target = parentNode.target;
       }
 
+      console.log('====== parentNode ======', parentNode);
+
       return createEntity('IMAGE', 'IMMUTABLE', entityData);
     } else if (nodeName === 'hr') {
       return createEntity('HR', 'IMMUTABLE', {});

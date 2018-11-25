@@ -498,6 +498,8 @@ const htmlToEntity = (options, source) => (nodeName, node, createEntity) => {
       entityData.link_target = parentNode.target
     }
 
+    console.log('====== parentNode ======', parentNode);
+
     return createEntity('IMAGE', 'IMMUTABLE', entityData) 
 
   } else if (nodeName === 'hr') {
