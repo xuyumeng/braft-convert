@@ -574,11 +574,13 @@ var htmlToEntity = function htmlToEntity(options, source) {
         entityData.link_target = parentNode.target;
       }
 
-      var captionNode = parentNode.childNodes[0];
+      var captionNode = parentNode.childNodes[1];
 
       if (captionNode && captionNode.nodeName && captionNode.nodeName.toLowerCase() === 'span') {
         entityData.caption = captionNode.innerHTML;
       }
+
+      console.log('[caption]', captionNode, entityData.caption);
 
       return createEntity('IMAGE', 'IMMUTABLE', entityData);
     } else if (nodeName === 'hr') {
