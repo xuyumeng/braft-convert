@@ -242,7 +242,7 @@ const convertAtomicBlock = (block, contentState) => {
 
     if (link) {
       return (
-        <div className={"media-wrap image-wrap" + styledClassName} style={imageWrapStyle}>
+        <div className={"media-wrap image-wrap" + styledClassName} style={{...imageWrapStyle, width: width + 16 * 2}}>
           <a style={{display:'inline-block'}} href={link} target={link_target}>
             <img {...meta} src={url} width={width} height={height} style={{width, height}} />
           </a>

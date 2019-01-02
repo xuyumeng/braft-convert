@@ -273,7 +273,7 @@ var convertAtomicBlock = function convertAtomicBlock(block, contentState) {
     if (link) {
       return _react2.default.createElement(
         "div",
-        { className: "media-wrap image-wrap" + styledClassName, style: imageWrapStyle },
+        { className: "media-wrap image-wrap" + styledClassName, style: _extends({}, imageWrapStyle, { width: width + 16 * 2 }) },
         _react2.default.createElement(
           "a",
           { style: { display: 'inline-block' }, href: link, target: link_target },
